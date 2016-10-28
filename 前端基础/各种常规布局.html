@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>各种常规布局</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      margin: 0 auto;
+      margin-bottom: 20px;
+      width: 80%;
+      height: 200px;
+      border: 1px solid red;
+    }
+    p {
+      margin: 10px 0px 10px 0px;
+      text-align: center;
+    }
+    #demo1.left {
+      margin-right: 220px;
+      height: 200px;
+      border: 1px solid blue;
+    }
+    #demo1.right {
+      float: right;
+      width: 200px;
+      height: 200px;
+      border: 1px solid yellow;
+    }
+    #demo2.left {
+      float: left;
+      width: 200px;
+      height: 200px;
+      border: 1px solid blue;
+    }
+    #demo2.right {
+      margin-left: 220px;
+      height: 200px;
+      border: 1px solid yellow;
+    }
+    #demo3.left {
+      float: left;
+      width: 200px;
+      height: 200px;
+      border: 1px solid blue;
+    }
+    #demo3.right {
+      float: right;
+      width: 200px;
+      height: 200px;
+      border: 1px solid blue;
+    }
+    #demo3.middle {
+      margin-left: 220px;
+      margin-right: 220px;
+      height: 200px;
+      border: 1px solid yellow;
+    }
+  </style>
+</head>
+<body>
+  <p>让我们从块级元素说起，在没设置宽度的时候，块级元素会占据整个父元素的整个空间。利用浮动的特性，我们就能实现自适应宽度</p>
+  <!--   两栏布局，左边宽度自适应 -->
+  <div class="container">
+    <div id="demo1" class="right">右栏右浮动</div>
+    <div id="demo1" class="left">左栏自适应宽度</div>
+  </div>
+  <!--   两栏布局，右边宽度自适应 -->
+  <div class="container">
+    <div id="demo2" class="left">左栏左浮动</div>
+    <div id="demo2" class="right">右栏自适应宽度</div>
+  </div>
+  <!--   三栏布局，左右定宽 -->
+  <div class="container">
+    <div id="demo3" class="left">左栏左浮动</div>
+    <div id="demo3" class="right">右栏右浮动</div>
+    <div id="demo3" class="middle">中间自适应宽度</div>
+  </div>
+</body>
+</html>
