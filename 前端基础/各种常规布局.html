@@ -59,6 +59,28 @@
       height: 200px;
       border: 1px solid yellow;
     }
+    #demo4.left {
+      float: left;
+      width: 200px;
+      height: 200px;
+      border: 1px solid yellow;
+    }
+    #demo4.right {
+      float: right;
+      width: 200px;
+      height: 200px;
+      border: 1px solid yellow;
+    }
+    #demo4.normal {
+      margin-left: 250px;
+      width: 200px;
+      height: 200px;
+      border: 1px solid yellow;
+    }
+    #demo4.right::after{
+      display: block;
+      clear: both;
+    }
   </style>
 </head>
 <body>
@@ -78,6 +100,13 @@
     <div id="demo3" class="left">左栏左浮动</div>
     <div id="demo3" class="right">右栏右浮动</div>
     <div id="demo3" class="middle">中间自适应宽度</div>
+  </div>
+  <p>清除浮动</p>
+  <!--   清除浮动-->
+  <div class="container">
+    <div id="demo4" class="left">左栏左浮动</div>
+    <div id="demo4" class="right clear">右栏右浮动</div>
+    <div id="demo4" class="normal">消除浮动以后</div>
   </div>
 </body>
 </html>
