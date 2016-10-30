@@ -2,7 +2,7 @@
 
 想下载远程库开始一个新项目的时候  git clone(想删除git remote rm )
 
-查看远程库  git remote -v  
+查看远程库  git remote -v
 
 整个提交上传过程： git add  git commit git push
 
