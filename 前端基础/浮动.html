@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>浮动还是单独拿出来聊聊吧</title>
+  <style>
+    .container {
+      margin: 0 auto;
+      margin-bottom: 20px;
+      width: 80%;
+      height: 200px;
+      border: 1px solid red;
+    }
+    p {
+      margin: 10px 0px 10px 0px;
+      text-align: center;
+    }
+    .demo1,.demo2,.demo3,.demo4 {
+      width: 100px;
+      height: 45px;
+      border: 1px solid red;
+    }
+    .demo2.div2 {
+      float: left;
+    }
+    .demo2.div3 {
+      width: 200px;
+      height: 50px;
+      border: 1px solid blue;
+    }
+    .demo3.div2 {
+      float: left;
+    }
+    .demo3.div3 {
+      float: left;
+      width: 200px;
+      height: 50px;
+      border: 1px solid blue;
+    }
+    .demo4.div2 {
+      float: left;
+    }
+    .demo4.div3 {
+      float: left;
+      width: 200px;
+      height: 50px;
+      border: 1px solid blue;
+      clear: left;
+    }
+    .demo4.div4 {
+      width: 200px;
+      height: 40px;
+      border: 1px solid blue;
+    }
+  </style>
+</head>
+<body>
+  <p>假如某个div元素A是浮动的，如果A元素上一个元素也是浮动的，那么A元素会跟随在上一个元素的后边(如果一行放不下这两个元素，那么A元素会被挤到下一行)；如果A元素上一个元素是标准流中的元素，那么A的相对垂直位置不会改变，也就是说A的顶部总是和上一个元素的底部对齐。
+  </p>
+  <p>首先来一个正常流</p>
+  <!--   清除浮动-->
+  <div class="container">
+    <div class="demo1 div1">这是div1</div>
+    <div class="demo1 div2">这是div2</div>
+    <div class="demo1 div3">这是div3</div>
+    <div class="demo1 div4">这是div4</div>
+  </div>
+  <p>然后让我们把第二个div左浮动,为了观察方便我们把第三个div拉大一点我们会发现第二个div脱离了正常流,第三个div占据了原来div2的位置</p>
+  <!--   清除浮动-->
+  <div class="container">
+    <div class="demo2 div1">这是div1</div>
+    <div class="demo2 div2">这是div2</div>
+    <div class="demo2 div3">这是div3...</div>
+    <div class="demo2 div4">这是div4</div>
+  </div>
+  <p>这次让我们浮动div2和div3,我们会发现div3会跟在div2后面</p>
+  <!--   清除浮动-->
+  <div class="container">
+    <div class="demo3 div1">这是div1</div>
+    <div class="demo3 div2">这是div2</div>
+    <div class="demo3 div3">这是div3...</div>
+    <div class="demo3 div4">这是div4</div>
+  </div>
+  <p>那如果我们要让div3在下一排显示呢，那就要用到清除浮动，利用css的浮动属性。注意浮动属性只能作用在自身</p>
+  <!--   清除浮动-->
+  <div class="container">
+    <div class="demo4 div1">这是div1</div>
+    <div class="demo4 div2">这是div2</div>
+    <div class="demo4 div3">这是div3...</div>
+    <div class="demo4 div4">这是div4</div>
+  </div>
+  <p>父元素没给高度的时候，浮动的元素可能会超过父元素边框，这时候给父元素一个overflow: auto可以解决这个问题(利用BFC后续我们还会提到)</p>
+  <p>通用闭合浮动方案,在父元素加上clearfix这个class:.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden},在一个流内相闭合直接使用clear处理就行了
+</p>
+</body>
+</html>
