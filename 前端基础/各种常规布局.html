@@ -9,6 +9,7 @@
       padding: 0;
     }
     .container {
+      position: relative;
       margin: 0 auto;
       margin-bottom: 20px;
       width: 80%;
@@ -59,27 +60,30 @@
       height: 200px;
       border: 1px solid yellow;
     }
-    #demo4.left {
-      float: left;
+    #demo4.middle {
+      margin: 0 auto;
       width: 200px;
-      height: 200px;
-      border: 1px solid yellow;
+      height: 80px;
+      border: 1px solid blue;
     }
-    #demo4.right {
-      float: right;
+    #demo5.middle {
+      position: absolute;
       width: 200px;
-      height: 200px;
-      border: 1px solid yellow;
+      height: 80px;
+      border: 1px solid blue;
+      top: 50%;
+      left: 50%;
+      transform: translate(-100px,-40px);
     }
-    #demo4.normal {
-      margin-left: 250px;
+    .demo6.container {
+      text-align: center;
+    }
+    #demo6.middle {
       width: 200px;
-      height: 200px;
-      border: 1px solid yellow;
-    }
-    #demo4.right::after{
-      display: block;
-      clear: both;
+      height: 80px;
+      border: 1px solid blue;
+      text-align: center;
+      line-height: 200px;
     }
   </style>
 </head>
@@ -100,6 +104,18 @@
     <div id="demo3" class="left">左栏左浮动</div>
     <div id="demo3" class="right">右栏右浮动</div>
     <div id="demo3" class="middle">中间自适应宽度</div>
+  </div>
+  <!--   块元素水平居中 -->
+  <div class="container">
+    <div id="demo4" class="middle">块元素水平居中</div>
+  </div>
+  <!--   块元素水平垂直居中 -->
+  <div class="container">
+    <div id="demo5" class="middle">块元素水平垂直居中</div>
+  </div>
+  <!--   行内水平垂直居中 -->
+  <div class="container demo6">
+    <span id="demo6" class="middle">行内元素水平垂直居中,给父元素一个text-align:center</span>
   </div>
 </body>
 </html>
