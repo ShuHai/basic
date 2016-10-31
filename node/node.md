@@ -1,6 +1,6 @@
 node常用命令
 
-node init 创建package.json文件
+npm init 创建package.json文件
 
 node -v 查看版本
 
