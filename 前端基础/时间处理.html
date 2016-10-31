@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="common/moment.js"></script>
+</head>
+<body>
+  <script>
+    var now = new Date();
+    var mockDay = '2016-10-29T23:59:40';
+    moment.locale('zh-cn')
+    var time = moment(mockday)
+    var todayOffset = moment().diff(moment(new Date()).format().slice(0, 10) + 'T00:00:00', 'hours')
+    var yesterdayOffset = todayOffset + 24
+    var dayOffset = moment().diff(time, 'hours')
+    // 自己处理时间的话
+    function GetDateStrFromToday(AddDayCount) {
+      var dd = new Date();
+      dd.setDate(dd.getDate() + AddDayCount);  // 获取AddDayCount天后的日期
+      return formatDate(dd);
+    }
+
+    function formatDate(sdate) {
+      var y = sdate.getFullYear();
+      var m = sdate.getMonth() + 1; // 获取当前月份的日期
+      m = m < 10 ? '0' + m : m;
+      var d = sdate.getDate();
+      d = d < 10 ? '0' + d : d;
+      var h = sdate.getHours();
+      h = h < 10 ? '0' + h : h;
+      var mm = sdate.getMinutes();
+      mm = mm < 10 ? '0' + mm : mm;
+      var s = sdate.getSeconds();
+      s = s < 10 ? '0' + s : s;
+      return y + '-' + m + '-' + d + 'T' + h + ':' + mm + ':' + s;
+    }
+  </script>
+</body>
+</html>

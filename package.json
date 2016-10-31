@@ -1,0 +1,22 @@
+{
+  "name": "basic",
+  "version": "1.0.0",
+  "description": "basic ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShuHai/basic.git"
+  },
+  "author": "xiaowei.yang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShuHai/basic/issues"
+  },
+  "homepage": "https://github.com/ShuHai/basic#readme",
+  "dependencies": {
+    "moment": "^2.15.2"
+  }
+}
