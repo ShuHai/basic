@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>弹性盒子</title>
+  <style>
+    .container {
+      display: flex;
+      width: 300px;
+      height: 200px;
+      border: 1px solid red;
+    }
+    .box {
+      border: 1px solid blue;
+      width: 50px;
+      height: 50px;
+    }
+    .column {
+      flex-direction: column;
+    }
+    .row {
+      flex-direction: row;
+    }
+    .column-reverse {
+      flex-direction: column-reverse;
+    }
+    .row-reverse {
+      flex-direction: row-reverse;
+    }
+  </style>
+</head>
+<body>
+  <p>普通的弹性盒子</p>
+  <div class="container">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+  <p>通过给父元素设置flex-direction:column来实现垂直</p>
+  <div class="container column">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+  <p>当然我们也能通过将flex-direction设置成row-reverse或者column-reverse</p>
+  <div class="container column-reverse">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+  </div>
+</body>
+</html>
