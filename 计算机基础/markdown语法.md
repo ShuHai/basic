@@ -19,9 +19,11 @@
 2.  这是一个有序列表
 3.  这是一个有序列表
 
+    `
     这是一个代码区块,随便举个例子
     let array = [1, 2, 3]
     array.map(item => {
       console.log(item)
     })
+    `
 
