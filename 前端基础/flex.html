@@ -15,9 +15,12 @@
       width: 50px;
       height: 50px;
     }
+
+    /*垂直*/
     .column {
       flex-direction: column;
     }
+    /*水平*/
     .row {
       flex-direction: row;
     }
@@ -26,6 +29,69 @@
     }
     .row-reverse {
       flex-direction: row-reverse;
+    }
+    .width100 {
+      width: 100px;
+    }
+    .flex1 {
+      flex: 1;
+    }
+    .justify-content {
+      height: 60px;
+    }
+    .justify-content-item {
+      height: 300px;
+    }
+    .justify-content-item.center {
+      justify-content: center;
+    }
+    .justify-content.center {
+      justify-content: center;
+    }
+    .justify-content.flex-start {
+      justify-content: flex-start;
+    }
+    .justify-content.flex-end  {
+      justify-content: flex-end;
+    }
+    .justify-content.space-between {
+      justify-content: space-between;
+    }
+    .justify-content.space-around {
+      justify-content: space-around;
+    }
+    .align-content.center {
+      align-content: center;
+    }
+    .align-content.flex-start {
+      align-content: flex-start;
+    }
+    .align-content.flex-end  {
+      align-content: flex-end;
+    }
+    .align-content.space-between {
+      align-content: space-between;
+    }
+    .align-content.space-around {
+      align-content: space-around;
+    }
+    .align-items {
+      height: 300px;
+    }
+    .align-items.center {
+      align-items: center;
+    }
+    .align-items.flex-start {
+      align-items: flex-start;
+    }
+    .align-items.flex-end  {
+      align-items: flex-end;
+    }
+    .align-items.baseline {
+      align-items: baseline;
+    }
+    .align-items.stretch {
+      align-items: stretch;
     }
   </style>
 </head>
@@ -47,6 +113,67 @@
     <div class="box">1</div>
     <div class="box">2</div>
     <div class="box">3</div>
+  </div>
+  <p>两栏布局，左栏定宽右栏自适应,注意给原来有宽度的元素设置flex1以后,flex会覆盖原有的宽度</p>
+  <div class="container">
+    <div class="box width100">1</div>
+    <div class="box flex1">2</div>
+  </div>
+  <p>水平居中</p>
+  <div class="container justify-content center">
+    <div class="box">1</div>
+  </div>
+  <p>左对齐</p>
+  <div class="container justify-content flex-start">
+    <div class="box">1</div>
+  </div>
+  <p>右对齐</p>
+  <div class="container justify-content flex-end">
+    <div class="box">1</div>
+  </div>
+  <p>首个元素放置在起点，末尾元素放在终点</p>
+  <div class="container justify-content space-between">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+  </div>
+  <p>均匀布局</p>
+  <div class="container justify-content space-around">
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+  </div>
+  <p>我们也可以通过设置子元素的align-content实现不同的对齐方式</p>
+  <div class="container column">
+    <div class="box align-content center">1</div>
+    <div class="box align-content flex-start">2</div>
+    <div class="box align-content flex-end">3</div>
+    <div class="box align-content space-between">4</div>
+    <div class="box align-content space-around">5</div>
+  </div>
+  <p>垂直居中</p>
+  <div class="container align-items center">
+    <div class="box">1</div>
+  </div>
+  <p>上对齐</p>
+  <div class="container align-items flex-start">
+    <div class="box">1</div>
+  </div>
+  <p>下对齐</p>
+  <div class="container align-items flex-end">
+    <div class="box">1</div>
+  </div>
+  <p>与基准线对齐</p>
+  <div class="container align-items baseline">
+    <div class="box">1</div>
+    <div class="box">2</div>
+  </div>
+  <p>拉伸元素以适应(初始值)</p>
+  <div class="container align-items stretch">
+    <div class="box">1</div>
   </div>
 </body>
 </html>

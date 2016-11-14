@@ -18,4 +18,4 @@ npm install -save-dev  安装加package.json的dev包
 
 npm发布
 
-npm adduser 输入账号密码邮箱,之后npm publish即可
+npm adduser 输入账号密码邮箱,之后npm publish即可。
