@@ -15,7 +15,35 @@
     array.pop();
     // 添加array[n]
     array.push(666);
-    console.log(array);
+
+    // 取值
+    array.toString();
+    array.valueOf();
+
+    // 合并成字符串
+    var string = array.join(',');
+
+    // 反向,改变自身
+    array.reverse();
+    // 排序
+    array.sort();
+    var array1 = [1];
+    var array2 = [2];
+    // 连接数组
+    array1.concat(array2);
+    array3 = [1, 2, 3, 4, 5];
+    // foreach相当于for循环遍历,没有返回值也没有改变数组
+    array3.forEach(item => {
+      console.log()
+    })
+    // map映射返回一个新数组
+    var array4 = array3.map(item => {
+                   return item * 2
+                 })
+    // filter返回一个新数组
+    var array4 = array3.filter(item => {
+                   return item > 4
+                 })
   </script>
 </body>
 </html>
