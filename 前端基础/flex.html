@@ -93,6 +93,11 @@
     .align-items.stretch {
       align-items: stretch;
     }
+    .wrapbox {
+      width: 245px;
+      height: 245px;
+      border: 1px solid blue;
+    }
   </style>
 </head>
 <body>
@@ -174,6 +179,12 @@
   <p>拉伸元素以适应(初始值)</p>
   <div class="container align-items stretch">
     <div class="box">1</div>
+  </div>
+  <div class="container" style=" flex-wrap:wrap;width: 500px;height: 500px;border: 1px solid red">
+    <div class="wrapbox"></div>
+    <div class="wrapbox"></div>
+    <div class="wrapbox"></div>
+    <div class="wrapbox"></div>
   </div>
 </body>
 </html>
