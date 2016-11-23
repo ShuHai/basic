@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #state1 {
+      position: absolute;
+      left: 200px;
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+    }
+    #state1.state2 {
+      left: 500px;
+      transition: left 3s;
+    }
+  </style>
+</head>
+<body>
+  <p><div id="state1"></div></p>
+  <p><input type="button" value="test" onclick="moveState1();"/></p>
+  <script type="text/javascript">
+    var demoa = document.getElementById('state1');
+    function moveState1() {
+      console.log('a');
+      demoa.className += ' '+ 'state2';
+    }
+  </script>
+</body>
+</html>
