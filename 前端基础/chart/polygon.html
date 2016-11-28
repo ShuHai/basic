@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>miemieChart</title>
+  <style>
+    #tutorial {
+      margin-top: 200px;
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="tutorial" width="600" height="400"></canvas>
+  <script>
+    var canvas = document.getElementById('tutorial');
+    var context = canvas.getContext('2d');
+    var width = canvas.width;
+    var height = canvas.height;
+    console.log(width);
+    console.log(height);
+    var padding = 20;
+    var paddingLeft =60;
+    var paddingBottom = 30;
+    // x轴起点坐标（580，370）,注意canvas起点在左上角
+    var axisX = {
+      x : width - padding,
+      y : height - paddingBottom
+    };
+    // y轴起点坐标（60,20）
+    var axisY = {
+      x : paddingLeft,
+      y : padding
+    }
+    // 原点(60,370)
+    var origin = {
+      x : paddingLeft,
+      y : height - paddingBottom
+    };
+    // 画坐标轴
+    context.beginPath();
+    context.strokeStyle = '#66ccff';
+    context.moveTo(axisY.x,axisY.y);
+    context.lineTo(origin.x,origin.y);
+    context.lineTo(axisX.x,axisX.y);
+    context.stroke();
+
+    // 画y轴箭头
+    context.beginPath();
+    context.moveTo(axisY.x-5,axisY.y+10);
+    context.lineTo(axisY.x,axisY.y);
+    context.lineTo(axisY.x+5,axisY.y+10);
+    context.stroke();
+
+    // 画x轴箭头
+    context.beginPath();
+    context.moveTo(axisX.x-10,axisX.y-5);
+    context.lineTo(axisX.x,axisX.y);
+    context.lineTo(axisX.x-10,axisX.y+5);
+    context.stroke();
+    // 绘制x轴
+    var month = {
+      x : paddingLeft + 10,
+      y : height - paddingBottom + 10
+    }
+    context.textBaseline = "top";
+    context.fillStyle = '#66ccff';
+    for(var i = 1; i <= 12; i++){
+        // 绘制月份信息
+        context.fillText(i+"月",month.x,month.y);
+        // 改变每次绘制的x坐标轴的值
+        month.x += (axisX.x - origin.x)/12;
+    }
+    // 绘制y轴
+    var money = {
+      x : paddingLeft - 30,
+      y : height - paddingBottom - 20
+    }
+    context.textBaseline = "left";
+    context.fillStyle = '#66ccff';
+    for(var i = 1; i <= 6; i++){
+        // 绘制月份信息
+        context.fillText(i * 100,money.x,money.y);
+        // 改变每次绘制的x坐标轴的值
+        money.y -= (origin.y - axisY.y)/6;
+    }
+
+    var dataModel = [150, 200, 300, 400 ,500, 330, 400, 250 , 169, 340, 260, 125];
+    var dataModelStatic = {
+      x : paddingLeft + 10,
+      y : height - paddingBottom
+    }
+    var start = {};
+    var end = {};
+    for (var i = 1; i < 12; i ++) {
+      context.beginPath();
+      context.strokeStyle = '#66ccff';
+      context.fillStyle = '#66ccff';
+      start.x = dataModelStatic.x + (axisX.x - origin.x)/12 * (i - 1);
+      start.y = dataModelStatic.y - dataModel[i - 1]/ 600 *370;
+      end.x = dataModelStatic.x + (axisX.x - origin.x)/12 * (i)
+      end.y = dataModelStatic.y - dataModel[i]/ 600 *370;
+      context.moveTo(start.x,start.y);
+      context.arc(start.x,start.y,3,0,Math.PI*2);
+      context.fill();
+      context.lineTo(end.x,end.y);
+      context.stroke();
+    }
+  </script>
+
+</body>
+</html>
