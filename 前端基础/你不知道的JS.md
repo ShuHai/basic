@@ -49,3 +49,39 @@ a = 2; var a;console.log(a); 此时会输出2,原因就在于变量的提升。�
     }
     `
 <br>函数声明会提升到普通变量之前，因此定义一个函数foo()以后再var foo，这个变量声明会被忽略掉。尽可能避免在块内部声明函数</br>
+### 第五章 作用域闭包
+当函数可以记住并访问所在的词法作用域的时候,就产生了闭包。函数在调用之后本来应该销毁，但是由于外部对函数内部的引用导致其无法销毁，这时候就产生了闭包。来一个最简单的例子。<br>
+    `
+    function foo() {
+      var a = 2;
+      function bar() {console.log(a)}
+      return bar;
+    }
+    var baz = foo();
+    baz();
+    `
+ <br>这就是闭包的效果，bar这个函数在定义的词法作用域以外的地方被执行。又比如计时器。<br>
+   `
+   function wait() {
+     var test = 'test';
+     setTimeout(function timer(){console.log(test)}, 1000)
+   }
+   `
+<br>由于计时器会持有对参数的引用，在第一次触发函数后他尼日不作用域不会消失，所以timer依旧保持着闭包。同理，事件监听器（比如jq的click触发一个函数），ajax请求等等使用了回调函数实际都是在使用闭包。下面是那个很经典的例子<br>
+ `
+ for(var i =1;i<5;i++) {
+  setTimeout(function timer() {
+    console.log(i)
+  },1000)
+ }
+ `
+ <br>上面的例子会输出五次5，如果想避免这种情况发生。要改成下面的样子<br>
+ `
+ for(var i =1;i<5;i++) {
+   (function(i){
+     setTimeout(function timer() {
+       console.log(i)
+     },1000)
+   })(i)
+ }
+ `
