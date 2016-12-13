@@ -88,3 +88,12 @@ a = 2; var a;console.log(a); 此时会输出2,原因就在于变量的提升。�
  
 ## 第二部分 this和对象原型
 ### 第一章 关于this
+this在任何情况下都不指向函数的词法作用域。
+当我们在一个函数中使用了严格模式，默认的this指向不是全局对象而是undefined<br>
+  `
+  function foo() {console.log(this.a)}
+  var a = 2;
+  foo(); //2
+  `
+  
+  
