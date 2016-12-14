@@ -96,4 +96,9 @@ this在任何情况下都不指向函数的词法作用域。
   foo(); //2
   `
   
+  `
+  function foo() {console.log(this.a)};
+  var obj = {a:2.foo:foo};
+  obj.foo(); //2
+  `
   

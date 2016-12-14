@@ -19,3 +19,5 @@ commit格式 git commit -m "content"
 查看分支  git branch
 
 合并分支 首先git checkout 到主分支，然后git merge branch
+
+快捷键co = checkout br = branch ci = commit st = status 通过修改gitconfig的alias实现
