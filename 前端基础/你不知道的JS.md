@@ -98,7 +98,42 @@ this在任何情况下都不指向函数的词法作用域。
   
   `
   function foo() {console.log(this.a)};
-  var obj = {a:2.foo:foo};
+  var obj = {a:2,foo:foo};
   obj.foo(); //2
   `
-  
+<br>关于隐式绑定this丢失，回调，计时器会发生同样的问题，参数传递是一种隐式赋值<br>
+  `
+  function foo() {console.log(this.a)};
+  var obj = {a:2,foo:foo};
+  obj.foo(); //2
+  var bar = obj.foo;
+  var a = 'global';
+  bar(); //global
+  `
+ <br>硬绑定:通过把apply包裹在一个函数内实现this不可换<br>
+  `
+  function foo() {console.log(this.a)};
+  var obj = {a:2};
+  var bar = function(){foo.call(obj)}
+  `
+ <br>在es5硬绑定被封装成了bind函数<br>
+ `
+ function bind(fn,obj){
+   return funtion() {
+     return fn.apply(obj,arguments)
+   }
+ }
+ `
+ <br>this的优先级（这段有争议还要好好理解一下）:是箭头函数优先级最高（但是他和其他规则有点不一样），然后是new出来的对象，然后是显示调用（bind硬绑定和call,apply这种普通的显示绑定），然后是隐式调用（比如在一个obj绑一个函数，里面用到了this），最后是默认this（一般是windows对象）<br>
+ `
+ function foo(arg) {
+   this.a = arg;
+ }
+ var obj1 = {};
+ var bar = foo.bind(obj1);
+ bar(2);
+ console.log(obj1.a);
+ var baz = new bar(3);
+ console.log(obj1.a);
+ console.log(baz.a);
+ `
