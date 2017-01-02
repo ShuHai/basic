@@ -17,8 +17,11 @@ Object.defineProperty(userInfo, "nickName", {
 });
 
 //深克隆
+// JSON.stringify的好处是非常简单易用，但是坏处也显而易见，这会抛弃对象的constructor，
+//也就是深复制之后，无论这个对象原本的构造函数是什么，在深复制之后都会变成Object。
+//另外诸如RegExp对象是无法通过这种方式深复制的。
 var cloneObj = function(obj){
-   var str, newobj = obj.constructor === Array ? [] : {};
+   var newobj = obj.constructor === Array ? [] : {};
    if(typeof obj !== 'object'){
      return;
    } else if(window.JSON){
