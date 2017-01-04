@@ -137,3 +137,31 @@ this在任何情况下都不指向函数的词法作用域。
  console.log(obj1.a);
  console.log(baz.a);
  `
+ 
+## 中卷 第一部分 类型和语法
+
+ 使用复合条件来判断一个变量是否是null: !a && typeof a === 'object'
+ 
+ var a ; type of a;type of b;都是undefined
+ 
+ 数组也是对象：var a = [];a[0] = 1;a['foo'] =2;console.log(a.length);
+ 
+ 使用Array.prototype.slice(arguments)来获取函数传参
+ 
+ 整数的安全范围：2的53次方 - 1
+ 
+ isNaN('foo') 会返回true，但这其实是一个bug，不要在项目中使用isNaN来做数字判断
+  `
+ function foo(x) {
+   x.push(4)
+   x = [4,5,6]
+   x.push(7)
+ }
+ var a = [1,2,3];
+ foo(a)
+ console.log(a);//[1,2,3,4]
+ `
+ <br>如果我们要让x指向[4,5,6,7],那我们在foo函数要先把x.length = 0,然后push(4,5,6,7)才行
+ 
+ 
+ 
