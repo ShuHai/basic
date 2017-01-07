@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script src="链表.js"></script>
+  <script>
+    // 链表测试
+    var list1 = new List()
+    list1.insert('a','head')
+    list1.insert('b','a')
+    list1.insert('c','head')
+    list1.insert('d','c')
+    list1.display()
+    console.log('-------')
+    list1.remove('c')
+    list1.remove('e')
+    list1.display()
+    console.log('-------')
+    console.log(list1.find('a'))
+    console.log(list1.findPrevious('a'))
+  </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+instance of,type of,toString
