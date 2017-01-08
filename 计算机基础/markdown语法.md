@@ -25,8 +25,8 @@
     array.map(item => {
       console.log(item)
     })
-    `  
- 
+    `
+
 这是第一行
 
 在第一行后面加两个回车来换行
