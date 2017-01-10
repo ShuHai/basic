@@ -34,3 +34,8 @@ var cloneObj = function(obj){
     }
     return newobj;
 };
+
+//方法可以把任意多个的源对象自身的可枚举属性拷贝给目标对象，然后返回目标对象(浅拷贝),有相同属性返回后面一个
+Object.assign()
+var a = { b : 3};var b = Object.assign({}, a);console.log(a == b)  false
+var a = { b : {c: 3 }};var b = Object.assign({}, a);console.log(a.b == b.b)  true
