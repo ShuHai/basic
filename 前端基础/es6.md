@@ -6,3 +6,23 @@ myMap.set('keyC', 'c');
 myMap.get('keyA');
 
 ### Set
+
+### 扩展运算符...
+扩展运算符用三个点号表示，功能是把数组或类数组对象展开成一系列用逗号隔开的值
+
+```
+var arr = [1,2,3,{b:4},[5,6]];
+console.log(...arr) //1,2,3,{b:4},[5,6]
+```
+
+一个复杂点的栗子,我们可以看到arr这个对象通过扩展运算符被浅拷贝了
+
+```
+var object1 = {parm1: 'aa', parm2: 'bb'}
+var arr     = [1,2,3,object1]
+var arr2    = arr
+var arr3    = [...arr1]
+console.log(arr2 === arr)  // true
+console.log(arr3 === arr)  // false
+console.log(arr3[3] === object1) // true
+```
