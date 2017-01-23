@@ -13,3 +13,8 @@ eg.var reg = new RegExp("^[0-9]*$");
    if(!reg.test(obj.value)){
         alert("请输入数字!");
     }
+
+从jQuery中抠出来的
+// Used for trimming whitespace
+trimLeft = /^\s+/,
+trimRight = /\s+$/,
