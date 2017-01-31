@@ -14,3 +14,7 @@ context.strokeStyle = '#66ccff';
 context.moveTo(x,y);
 context.lineTo(x2,y2);
 context.stroke();
+// 画圆
+context.beginPath();
+context.arc(200,200,150,0,2*Math.PI);
+context.stroke();

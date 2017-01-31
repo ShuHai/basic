@@ -2,11 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>miemieChart</title>
+  <title>miemieChart饼图</title>
+  <style>
+    #tutorial {
+      display: block;
+      margin: 200px auto 0px;
+      border: 1px solid red;
+    }
+  </style>
 </head>
 <body>
-  <canvas id="tutorial" width="300" height="300"></canvas>
+  <canvas id="tutorial" width="400" height="400"></canvas>
   <script>
+    var canvas = document.getElementById('tutorial');
+    var context = canvas.getContext('2d');
+    var width = canvas.width;
+    var height = canvas.height;
+    var arr = [
+      {id: 1, color: 'red', num: 20},
+      {id: 2, color: 'blue', num: 120},
+      {id: 3, color: 'yellow', num: 40},
+      {id: 4, color: 'green', num: 20},
+    ];
+    var start = 0;
+    var total = 0;
+    arr.forEach(function(value) {
+       total += value.num
+    })
+    arr.forEach(function(value, index) {
+      context.fillStyle = value.color;
+      end = (start + value.num);
+      startAgl = start / total * 2 * Math.PI;
+      endAgl = end / total * 2* Math.PI;
+      context.beginPath();
+      context.moveTo(200,200);
+      context.arc(200, 200, 150, startAgl, endAgl, false);
+      context.lineTo(200,200);
+      context.fill();
+      start = end;
+    })
   </script>
 </body>
 </html>
