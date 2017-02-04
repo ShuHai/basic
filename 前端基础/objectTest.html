@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>object的各种方法测试</title>
+</head>
+<body>
+  <script>
+    // 一个最简单的对象
+    var obj1 = new Object()
+    obj1.name = 'hello'
+    obj1.say = function() {console.log(this.name)}
+    console.log(obj1)
+    obj1.say()
+    console.log('~~~~~~~~~~~~')
+
+
+    // 属性类型,configurable表示能否删除或者修改特性或者修改成访问器属性,enumerable表示能否被for-in循环出来，writable决定了值是否可以修改
+    var obj2 = new Object()
+    Object.defineProperty(obj2, 'name', {
+      configurable: true,
+      enumerable: true,
+      writable: false,
+      value: 'miemie'
+    })
+    console.log(obj2.name)
+    obj2.name = 'change'
+    console.log(obj2.name) // 因为writable是false所以无法修改
+    for(key in obj2) {
+      console.log(key + ':' + obj2[key]) // name:miemie
+    }
+    console.log('~~~~~~~~~~~~')
+
+    var obj3 = new Object()
+    Object.defineProperty(obj3, 'name', {
+      configurable: true,
+      enumerable: false,
+      writable: true,
+      value: 'miemie'
+    })
+    Object.defineProperty(obj3, 'sex', {
+      configurable: true,
+      enumerable: true,
+      writable: true,
+      value: 'male'
+    })
+    for(key in obj3) {
+      console.log(key + ':' + obj3[key]) // sex:male
+    }
+    console.log('~~~~~~~~~~~~')
+    // 当我们修改了configurable为false的时候，configurable和enumerable不可再次修改但是writable和value可以
+    var obj4 = new Object()
+    Object.defineProperty(obj4, 'name', {
+      configurable: false,
+      enumerable: true,
+      writable: true,
+      value: 'miemie'
+    })
+    Object.defineProperty(obj4, 'name', {
+      configurable: false,
+      enumerable: true,
+      writable: true,
+      value: 'aa'
+    })
+    console.log(obj4)
+    console.log('~~~~~~~~~~~~')
+    // 访问器属性,_表示内部对象方法,如果我们使用了get，则我们的set并不会改变对象的值。
+    var obj5 = new Object()
+    Object.defineProperty(obj5, 'level', {
+      configurable: true,
+      enumerable: true,
+      set: function (value) {
+        if (value === 'up') {
+          this.atk += 1
+        } else if (value = 'down'){
+          this.atk -= 1
+        }
+      },
+      get: function() {
+        return this.initLevel
+      }
+    })
+    obj5.atk = 0
+    obj5.initLevel = null
+    console.log(obj5.level) // null
+    obj5.initLevel = 222
+    console.log(obj5.level) //222
+    console.log(obj5.atk) //0
+    obj5.initLevel = 'up'
+    console.log(obj5.level) //up
+    console.log(obj5.atk) // 0
+    obj5.level = 'up'
+    console.log(obj5.level) //up
+    console.log(obj5.atk) // 1
+    obj5.level = 'down'
+    console.log(obj5.level) // up
+    console.log(obj5.atk) // 0
+    Object.defineProperty(obj5, 'level', {
+      configurable: true,
+      enumerable: true,
+      set: function (value) {
+        this._level = value
+        if (value === 'up') {
+          this.atk += 1
+        } else if (value = 'down'){
+          this.atk -= 1
+        }
+      },
+      get: function() {
+        return this._level
+      }
+    })
+    obj5.level = 'down'
+    console.log(obj5.level) // down
+    console.log(obj5.atk) // 0
+  </script>
+</body>
+</html>
