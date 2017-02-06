@@ -113,6 +113,58 @@
     obj5.level = 'down'
     console.log(obj5.level) // down
     console.log(obj5.atk) // 0
+    console.log('~~~~~~~~~~~~')
+    // 利用defineproperties同时定义多个属性
+    var obj6 = new Object()
+    Object.defineProperties(obj6, {
+      a: {
+        value: 3
+      },
+      b: {
+        value: 5
+      }
+    })
+    console.log(obj6)
+    console.log('~~~~~~~~~~~~')
+    // 利用getOwnPropertyDescription可以获取属性值
+    var getObj4 = Object.getOwnPropertyDescriptor(obj4, 'name')
+    console.log(getObj4)
+    var obj7 = {name: 'aaa'}
+    var getObj7 = Object.getOwnPropertyDescriptor(obj7, 'name')
+    console.log(getObj7)
+    console.log('~~~~~~~~~~~~')
+    // 使用工厂模式创建对象
+    function createPerson(name, age) {
+      var o = new Object()
+      o.name = name
+      o.age = age
+      o.hello = function () {
+        console.log(this.name)
+      }
+      return o
+    }
+    var person1 = createPerson('miemie', 12)
+    console.log(person1)
+    person1.hello()
+    console.log(person1.constructor)
+    console.log('~~~~~~~~~~~~')
+    // 使用构造函数创建对象
+    function Person(name, age) {
+      this.hi = 'hi'
+      this.name = name
+      this.age = age
+      this.hello = function () {
+        console.log(this.name)
+      }
+    }
+    var person2 = new Person('miemie', 12)
+    var person3 = new Person('miemie2', 122)
+    console.log(person2)
+    person2.hello()
+    console.log(person2.constructor)
+    console.log(person3.constructor)
+    console.log(person2.constructor === Person)
+    console.log('~~~~~~~~~~~~')
   </script>
 </body>
 </html>
