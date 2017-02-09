@@ -165,6 +165,43 @@
     console.log(person3.constructor)
     console.log(person2.constructor === Person)
     console.log('~~~~~~~~~~~~')
+    // 原型模式,缺点，如果其中有引用类型，一个实例的改变会导致所有实例的改变
+    function PersonPro() {}
+    PersonPro.prototype.name = '111'
+    PersonPro.prototype.say = function() {
+      console.log(this.name)
+    }
+    var personPro1 = new PersonPro()
+    personPro1.say()
+    console.log(PersonPro.prototype.isPrototypeOf(personPro1))
+    console.log(Object.getPrototypeOf(personPro1))
+    personPro1.name = 'change'
+    console.log(personPro1.name)
+    console.log(personPro1.hasOwnProperty('name'))
+    console.log('name' in personPro1)
+    delete personPro1.name
+    console.log('删除之后')
+    console.log(personPro1.name)
+    console.log(personPro1.hasOwnProperty('name'))
+    console.log('name' in personPro1)
+    console.log('~~~~~~~~~~~~')
+    // 利用hasOwnProperty和in可以获取原型是否存在方法
+    function hasPrototypeProperty(object, name) {
+      return  !object.hasOwnProperty(name) && (name in object)
+    }
+    // 组合构造原型模式
+    function CombinePerson(name) {
+      this.name = name
+    }
+    CombinePerson.prototype = {
+      say : function() {
+        console.log(this.name)
+      }
+    }
+    var comObj = new CombinePerson('ss')
+    console.log(comObj.constructor)
+    CombinePerson.prototype.constructor = CombinePerson
+    console.log(comObj.constructor)
   </script>
 </body>
 </html>
