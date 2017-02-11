@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .global-container {
+      width: 500px;
+      border: 1px solid red
+    }
+    .global-container div {
+      border: 1px solid blue;
+      color: red;
+    }
+    .global-container .a {
+      color: blue;
+    }
+    .global-container .a-container .a {
+      color: black;
+    }
+    .a-container .a {
+      color: red;
+    }
+    .a {
+      color: green;
+      height: 100px;
+    }
+    .global-container .b {
+      color: yellow;
+    }
+    .global-container .c {
+      color: black
+    }
+  </style>
+</head>
+<body>
+  <div>
+    最基本的内联1000，ID100,属性class10,标签伪元素1 <br>
+    通用选择器（*），子选择器（>）和相邻同胞选择器（+）并不在这四个等级中,都是0 <br>
+  </div>
+  <br><br>
+  <div class="global-container">
+    <div class="a" id="a">
+      一个class和一个id,显示蓝色
+    </div>
+    <div class="a-container">
+      <div class="a">
+        一个class，外面包一层container
+      </div>
+    </div>
+    <div class="b c">
+      有两个class,b在c后面
+    </div>
+  </div>
+</body>
+</html>
