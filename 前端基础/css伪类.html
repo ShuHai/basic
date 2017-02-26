@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <style>
+    .demo1 {
+      display: inline-block;
+    }
+    .demo1 > p:first-child {
+      color: red;
+    }
+    .demo1 > p:last-child {
+      color: blue;
+    }
+    .demo1 > p:nth-child(3) {
+      color: green;
+    }
+    .demo2 {
+      display: inline-block;
+    }
+    .demo2 > p:first-of-type {
+      color: red;
+    }
+    .demo2 > p:last-of-type {
+      color: blue;
+    }
+    .demo2 > p:nth-of-type(3) {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo1">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+  <div class="demo1">
+    <div>div</div>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+  <div class="demo2">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+  <div class="demo2">
+    <div>div</div>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+  </div>
+</body>
+</html>
