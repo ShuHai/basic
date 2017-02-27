@@ -98,6 +98,21 @@
       height: 245px;
       border: 1px solid blue;
     }
+    .container2 {
+      border: 1px solid red;
+      width: 300px;
+      display: flex;
+    }
+    .container2 > .left {
+      width: 50px;
+      height: 300px;
+      border: 1px solid yellow;
+    }
+    .container2 > .right {
+      flex: 1;
+      height: auto;
+      border: 1px solid yellow;
+    }
   </style>
 </head>
 <body>
@@ -185,6 +200,11 @@
     <div class="wrapbox"></div>
     <div class="wrapbox"></div>
     <div class="wrapbox"></div>
+  </div>
+  <p>探讨一下高度</p>
+  <div class="container2">
+    <div class="left">1</div>
+    <div class="right">2</div>
   </div>
 </body>
 </html>
