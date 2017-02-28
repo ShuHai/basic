@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style type="text/css">
+    .container {
+      width: 500px;
+      height: 500px;
+      border: 1px solid red;
+    }
+    .container div {
+      color: #66ccff;
+    }
+    .container + div {
+      color: red;
+    }
+    .container > div {
+      color: blue;
+    }
+    [attr = attr] {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div>a</div>
+    <div>b
+      <div>b2</div>
+    </div>
+    <div>c</div>
+  </div>
+  <div>d</div>
+  <div>d</div>
+  <div attr="attr">e</div>
+</body>
+</html>
