@@ -44,3 +44,13 @@ Set和Array互换,顺便来个浅拷贝
     console.log(arr2 === arr)  // true
     console.log(arr3 === arr)  // false
     console.log(arr3[3] === object1) // true
+
+### 模板字符串
+原来的写法
+    
+    var name = 'miemie'; 
+    var string = 'hello' + name;
+    
+现在的写法
+
+    var string = `hello${name}`
