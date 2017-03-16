@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #container {
+      margin: 0 auto;
+      width: 800px;
+      height: 800px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container" tabindex="0"></div>
+  <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=8af0b9d8bf41547218795e2ef0110c80">
+  </script>
+  <script type="text/javascript">
+      var map = new AMap.Map('container',{
+          resizeEnable: true,
+          zoom: 12,
+          center: [116.397428, 39.90923]
+      });
+      var polygonArr = new Array();//多边形覆盖物节点坐标数组
+      polygonArr.push([116.403322, 39.920255]);
+      polygonArr.push([116.410703, 39.897555]);
+      polygonArr.push([116.402292, 39.892353]);
+      polygonArr.push([116.389846, 39.891365]);
+      var  polygon = new AMap.Polygon({
+          path: polygonArr,//设置多边形边界路径
+          strokeColor: "#FF33FF", //线颜色
+          strokeOpacity: 0.2, //线透明度
+          strokeWeight: 3,    //线宽
+          fillColor: "#1791fc", //填充色
+          fillOpacity: 0.35//填充透明度
+      });
+      polygon.setMap(map);
+  </script>
+</body>
+</html>
