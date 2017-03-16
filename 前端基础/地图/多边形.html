@@ -19,13 +19,13 @@
       var map = new AMap.Map('container',{
           resizeEnable: true,
           zoom: 12,
-          center: [116.397428, 39.90923]
+          center: [116.497428, 39.90923]
       });
       var polygonArr = new Array();//多边形覆盖物节点坐标数组
-      polygonArr.push([116.403322, 39.920255]);
-      polygonArr.push([116.410703, 39.897555]);
-      polygonArr.push([116.402292, 39.892353]);
-      polygonArr.push([116.389846, 39.891365]);
+      polygonArr.push([116.503322, 39.920255]);
+      polygonArr.push([116.510703, 39.897555]);
+      polygonArr.push([116.502292, 39.892353]);
+      polygonArr.push([116.589846, 39.891365]);
       var  polygon = new AMap.Polygon({
           path: polygonArr,//设置多边形边界路径
           strokeColor: "#FF33FF", //线颜色
@@ -35,6 +35,20 @@
           fillOpacity: 0.35//填充透明度
       });
       polygon.setMap(map);
+      polygon.on('click', function() {
+        console.log('多边形被点击');
+      })
+
+      var circle = new AMap.Circle({
+          map: map,
+          center: new AMap.LngLat("116.403322", "39.920255"),// 圆心位置
+          radius: 1000, //半径
+          strokeColor: "#F33", //线颜色
+          strokeOpacity: 1, //线透明度
+          strokeWeight: 3, //线粗细度
+          fillColor: "#ee2200", //填充颜色
+          fillOpacity: 0.35//填充透明度
+      });
   </script>
 </body>
 </html>
