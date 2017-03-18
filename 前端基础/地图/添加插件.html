@@ -6,20 +6,26 @@
   <style>
     #container {
       margin: 0 auto;
-      width: 800px;
-      height: 800px;
+      width: 90%;
+      height: 600px;
     }
   </style>
 </head>
 <body>
   <div id="container" tabindex="0"></div>
-  </script>
   <script type="text/javascript">
       var map = new AMap.Map('container',{
           resizeEnable: true,
           zoom: 10,
-          center: [116.480983, 40.0958]
       });
+      var scale = new AMap.Scale({
+          visible: true
+      });
+      toolBar = new AMap.ToolBar({
+          visible: true
+      });
+      map.addControl(scale);
+      map.addControl(toolBar);
   </script>
 </body>
 </html>
