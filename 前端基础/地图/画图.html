@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #container {
+      margin: 0 auto;
+      width: 90%;
+      height: 600px;
+    }
+    .mie2 {
+      position: absolute;
+      top: 250px;
+      left: 450px;
+      width: 80px;
+      height: 80px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container" tabindex="0"></div>
+  <img src="../image/mie2.jpg" class="mie2">
+  <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.3&key=&plugin=AMap.Scale,AMap.ToolBar,AMap.MouseTool">
+  </script>
+  <script type="text/javascript">
+      var map = new AMap.Map('container',{
+          resizeEnable: true,
+          zoom: 10,
+      });
+      var scale = new AMap.Scale({
+          visible: true
+      });
+      toolBar = new AMap.ToolBar({
+          visible: true
+      });
+      map.addControl(scale);
+      map.addControl(toolBar);
+      var mouseTool = new AMap.MouseTool(map);
+      mouseTool.polygon();
+  </script>
+</body>
+</html>
