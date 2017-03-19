@@ -40,7 +40,7 @@ List.prototype = {
   edit: function(item,newItem){
     var element= this.find(item)
     element.element=newItem
-  }
+  },
   display: function() {
     var current = this.head;
     while(current.next != null) {

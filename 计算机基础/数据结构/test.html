@@ -6,6 +6,7 @@
 </head>
 <body>
   <script src="链表.js"></script>
+  <script src="你们怎么总是喜欢反转二叉树.js"></script>
   <script>
     // 链表测试
     var list1 = new List()
@@ -21,6 +22,55 @@
     console.log('-------')
     console.log(list1.find('a'))
     console.log(list1.findPrevious('a'))
+    var tree = {
+      value : 1,
+      left: {
+        value: 2,
+        left: {
+          value: 4,
+          left: {
+            value: 8
+          },
+          right: {
+            value: 9
+          }
+        },
+        right: {
+          value: 5,
+          left: {
+            value: 10
+          },
+          right: {
+            value: 11
+          }
+        }
+      },
+      right: {
+        value: 3,
+        left: {
+          value: 6,
+          left: {
+            value: 12
+          },
+          right: {
+            value: 13
+          }
+        },
+        right: {
+          value: 7,
+          left: {
+            value: 14
+          },
+          right: {
+            value: 15
+          }
+        }
+      }
+    }
+
+    var bineryTree = new bineryTree()
+    bineryTree.revert(tree)
+    console.log(tree)
   </script>
 </body>
 </html>
