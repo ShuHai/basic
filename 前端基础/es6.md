@@ -47,10 +47,18 @@ Set和Array互换,顺便来个浅拷贝
 
 ### 模板字符串
 原来的写法
-    
-    var name = 'miemie'; 
+
+    var name = 'miemie';
     var string = 'hello' + name;
-    
+
 现在的写法
 
     var string = `hello${name}`
+
+### 模块化
+
+    export obj;
+    import { obj } from './a.js';
+    export default function cube(x) {
+      return x * x * x;
+    }
