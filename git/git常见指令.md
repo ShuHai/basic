@@ -23,4 +23,7 @@ commit格式 git commit -m "content"
 快捷键co = checkout br = branch ci = commit st = status 通过修改gitconfig的alias实现
 
 变基操作 git rebase
-回滚好帮手 git revert
+回滚好帮手 git revert,git reset
+查看commit git log
+存储add git stash
+查看stash 列表 git stash list
