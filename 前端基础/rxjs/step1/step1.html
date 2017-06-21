@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <button>click</button>
+  <script type="text/javascript" src="https://unpkg.com/rxjs/bundles/Rx.min.js"></script>
+  <script type="text/javascript">
+    var button = document.querySelector('button');
+    Rx.Observable.fromEvent(button, 'click')
+    .throttleTime(1000)
+    .scan(count => count + 1, 0)
+    .subscribe(count => console.log(`Clicked ${count} times`));
+  </script>
+</body>
+</html>
