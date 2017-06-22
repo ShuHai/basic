@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript" src="https://unpkg.com/rxjs/bundles/Rx.min.js"></script>
+  <script type="text/javascript">
+    // 生命周期（好吧其实也不能算
+    // Creating Observables,首先创建可观察对象
+    var observable = Rx.Observable.create(function subscribe(observer) {
+      observer.next('hello')
+      observer.next('complete')
+    });
+    // Subscribing to Observables  接下来是订阅,可以像下面这样写，也可以写成对象
+    observable.subscribe(x => console.log(x,x));
+    // Executing the Observable  执行可观察对象
+
+
+    // "Next": 发送一个数字/字符串/对象等值。
+    // "Error": 发送一个JS错误或者异常。
+    // "Complete" 不发送值。
+    // complete之后的值不执行
+    // 有点像promise,then,finally and catch。complete和error只会执行其中一个
+    var observable2 = Rx.Observable.create(function subscribe(observer) {
+      console.log('看看跑几个')
+      observer.next('1')
+      observer.next('2')
+      // 我们会发现complete会执行，但是传值并没有什么卵用
+      observer.complete('complete')
+      // 3并不会触发
+      observer.next('3')
+      // error在complete之后也不会触发
+      observer.error('error')
+      console.log('跑完咯')
+    });
+    observable2.subscribe({
+      next: x => console.log(x),
+      error: err => console.error(err),
+      complete: x => console.log('haha',x),
+    });
+    // Disposing Observables 最后让我们处理一些可观察对象
+    // 其实就是干掉他
+    var observable3 = Rx.Observable.create(function subscribe(observer) {
+    // Keep track of the interval resource
+    var intervalID = setInterval(() => {
+      observer.next(1);
+    }, 1000);
+    // Provide a way of canceling and disposing the interval resource
+    return function unsubscribe() {
+       clearInterval(intervalID);
+      };
+    });
+    subscription = observable3.subscribe(x => console.log(x,x));
+    // 在10s后干掉他
+    setInterval(() => {
+      subscription.unsubscribe();
+    }, 10000);
+  </script>
+</body>
+</html>
