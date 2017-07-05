@@ -7,7 +7,43 @@
 <body>
   <script type="text/javascript" src="https://unpkg.com/rxjs/bundles/Rx.min.js"></script>
   <script type="text/javascript">
-    
-  </script>
+    // 各种api
+
+    //of
+    var source = Rx.Observable
+        .create(function(observer) {
+            observer.next('Jerry');
+            observer.next('Anna');
+            observer.complete();
+        });
+    // 等价于
+    var source = Rx.Observable.of('Jerry', 'Anna');
+
+
+    // from,跟of的区别在于可以直接传入一个list,或者诸如 Set, WeakSet, Iterator甚至是string,promise
+    var arr = ['Jerry', 'Anna', 2016, 2017, '30 days']
+    var source = Rx.Observable.from(arr);
+
+    // fromEvent
+    // 处理各种dom事件
+    var source = Rx.Observable.fromEvent(document.body, 'click');
+
+    // fromEventPattern
+
+
+
+    // empty 會給我們一個空的 observable，如果我們訂閱這個 observable 會發生什麼事呢？ 它會立即送出 complete 的訊息
+    // never 會給我們一個無窮的 observable，如果我們訂閱它又會發生什麼事呢？...什麼事都不會發生，它就是一個一直存在但卻什麼都不做的 observable。
+    // throw 他只负责抛异常
+
+
+
+    // 计时器
+    var source = Rx.Observable.interval(1000);
+    // timer，加强版，第一個參數代表要發出第一個值的等待時間(ms)，第二個參數代表第一次之後發送值的間隔時間
+    var source = Rx.Observable.timer(1000, 5000);
+
+    // rxjs在最后返回  subscription,subscription.unsubscribe()
+    </script>
 </body>
 </html>
