@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>addEventListener</title>
+</head>
+<body>
+  <button id="myButton">点击</button>
+  <div id="content">1</div>
+
+  <button id="myButton2">点击</button>
+  <script>
+    let myButton = document.getElementById('myButton')
+    let content = document.getElementById('content')
+    myButton.addEventListener('click', function(){
+      content.innerHTML += 1
+    }, { once: true });
+
+    let myButton2 = document.getElementById('myButton2')
+    myButton2.onclick = function(event){ alert('Hello world');};
+  </script>
+</body>
+</html>
