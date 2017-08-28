@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    let ask = new Promise(function(resolve,reject) {
+      setTimeout(function(){
+        reject("are you ok？");
+      }, 250);
+    })
+    ask.then(res => {
+      console.log('成功啦')
+      console.log(res)
+    })
+    .catch(err => {
+      console.log('失败啦')
+      console.log(err)
+    })
+  </script>
+</body>
+</html>

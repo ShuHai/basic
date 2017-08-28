@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <title>Worker example: One-core computation</title>
+ </head>
+ <body>
+  <div>细节参考https://html.spec.whatwg.org/multipage/workers.html#a-background-number-crunching-worker</div>
+  <p>web worker test: <output id="result"></output></p>
+  <script>
+   var worker = new Worker('worker.js');
+   worker.onmessage = function (event) {
+     document.getElementById('result').textContent = event.data;
+   };
+  </script>
+ </body>
+</html>

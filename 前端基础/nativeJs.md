@@ -1,0 +1,1 @@
+[[scope]] ,scope chain,global,scope,closure
