@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 纯原型继承
+    function god() {
+      this.type = 'god'
+      this.link = [1,2,3]
+    }
+    function son() {
+    }
+    son.prototype = new god()
+    son.prototype.log = function() {
+      console.log(this.type)
+      console.log(this.link)
+    }
+    let yadang = new son()
+    yadang.log()
+    yadang.link.push(4)
+    let xiawa = new son()
+    // xiawa的link被改变了，这显然不是我们希望的
+    xiawa.log()
+    console.log('--------------')
+
+
+
+
+    // 组合式继承,这下安全了
+    function Animal() {
+      this.type = 'animal'
+      this.link = [1,2,3,4]
+    }
+
+    Animal.prototype.laugh = function() {
+      console.log('hhhh')
+    }
+    function Cat(name, age) {
+      Animal.call(this)
+      this.name = name
+    }
+    Cat.prototype = new Animal()
+    Cat.prototype.constructor = Cat
+    Cat.prototype.log = function () {
+      console.log(this.type)
+      console.log(this.link)
+      console.log(this.constructor)
+    }
+    let kitty = new Cat()
+    kitty.log()
+    kitty.link.push(5)
+    kitty.log()
+    let kitty2 = new Cat()
+    kitty2.log()
+    console.log('--------------')
+
+
+
+   // 来个类
+   class A {
+     constructor(height, width) {
+       this.height = height
+       this.width = width
+     }
+     log() {
+       console.log(this.height)
+       console.log(this.width)
+     }
+
+     // static 关键字用来定义一个类的一个静态方法。调用静态方法不用实例化其类，但不能通过一个类实例调用静态方法。静态方法通常用于为一个应用程序创建工具函数
+     static silent() {
+       console.log('silent')
+     }
+   }
+
+   class B extends A {
+     constructor(width,height) {
+       super(width,height)
+     }
+     log() {
+      // 继承粑粑的log方法
+      super.log()
+      console.log('hahh')
+     }
+     // 继承父类静态方法
+     static lala() {
+       return super.silent() + ' lala';
+     }
+   }
+
+   let shine = new B(10,20)
+   shine.log()
+   // 这时候调用shine.silent()会报错,但是直接类调用是可以的
+   B.silent()
+    console.log('--------------')
+  </script>
+</body>
+</html>
