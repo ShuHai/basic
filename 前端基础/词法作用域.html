@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function a(i) {
+      var i;
+      console.log(i);
+    };
+    // a(10);// 输出10
+
+    function b(i) {
+      console.log(i)
+      console.log(a)
+      console.log(arguments[0])
+      var i = 2
+      var a = 3
+      console.log(i)
+      console.log(a)
+      console.log(arguments[0])
+    }
+    // b(10) // 10, undefined, 10, 2, 3, 2
+
+    var j = 10
+    function c() {
+      console.log(j);
+      var j = 2;
+      console.log(j);
+    }
+    //c() // undefined,2
+
+
+    var obj = {a:2}
+    function d(obj) {
+      obj.a = 3
+    }
+    d(obj)
+    console.log(obj)
+  </script>
+</body>
+</html>
