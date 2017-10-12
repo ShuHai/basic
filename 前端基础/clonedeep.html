@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let obj = {
+      a: 'aaa',
+      b: {
+       c: 'vv',
+       d: {
+         e: {
+           f: 'aaaa'
+         }
+       }
+      }
+    }
+    function clone(obj) {
+      let newObj = {}
+      for (let key in obj) {
+        newObj[key] = typeof obj[key] === 'object' ? clone(obj[key]) : obj[key];
+      }
+      return newObj
+    }
+    let obj2 = clone(obj)
+    console.log(obj2)
+  </script>
+
+</body>
+</html>
