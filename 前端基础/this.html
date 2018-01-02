@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // this任何时候回都不指向函数的词法作用域
+    // 先来一个简单的例子
+    function foo(num) {
+      this.count = num
+    }
+    foo.count = 0
+    foo(1)
+    console.log(foo.count)  // 0
+    console.log(count)  // 1
+  </script>
+</body>
+</html>
