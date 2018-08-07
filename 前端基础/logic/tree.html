@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let tree = [{
+      id: 1,
+      childs: [
+        {
+          id: 2,
+          childs: [{
+            id: 3,
+            childs:[]
+          }]
+        },
+        {
+          id: 5,
+          childs: [{
+            id: 6,
+            childs:[]
+          }]
+        }
+      ]
+    },{
+      id: 4,
+      childs: []
+    }]
+    function flatTree(arr, list) {
+      list.forEach(item => {
+        arr.push(item)
+        if(item.childs.length) {
+          flatTree(arr, item.childs)
+        }
+      })
+      return arr
+    }
+    console.log(flatTree([], tree))
+
+  </script>
+</body>
+</html>

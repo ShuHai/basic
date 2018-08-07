@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h5>new 运算符创建一个用户定义的对象类型的实例或具有构造函数的内置对象的实例。</h5>
+  <h5>当代码 new Foo(...) 执行时，会发生以下事情：
+    一个继承自 Foo.prototype 的新对象被创建。
+    使用指定的参数调用构造函数 Foo ，并将 this 绑定到新创建的对象。new Foo 等同于 new Foo()，也就是没有指定参数列表，Foo 不带任何参数调用的情况。
+  </h5>
+  <script>
+    function Person() {
+    }
+    // 修改原型属性测试
+    console.log('--------修改原型属性测试---------')
+    Person.prototype.color = 'yellow'
+    var miemie = new Person()
+    console.log(miemie.color) // yellow
+    Person.prototype.color = 'black'
+    console.log(miemie.color) // black
+    miemie.color = 'yellow'
+    Person.prototype.color = 'blue'
+    console.log(miemie.color) // yellow
+    console.log('miemie',miemie)
+    console.log('Person',Person)
+    console.log('Person.prototype',Person.prototype)
+    console.log('--------------')
+  </script>
+</body>
+</html>

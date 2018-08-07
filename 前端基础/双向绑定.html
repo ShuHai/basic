@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    user = {}
+    user.firstName = 'miemie'
+    user.lastName = 'long'
+    Object.observe(user, function(changes){
+        changes.forEach(function(change) {
+            user.lastName = user.firstName + " 123 " ;
+        });
+    });
+    console.log(user)
+    user.firstName = 'miemie2'
+    console.log(user)
+  </script>
+</body>
+</html>

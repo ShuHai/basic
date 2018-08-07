@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>event test</title>
+</head>
+<body>
+  <script>
+    var eventReady = document.createEvent('Events');
+    eventReady.initEvent('miemieCall');
+    let count = 0
+    document.addEventListener('miemieCall', function() {
+      console.log('miemieCall')
+      count += 1
+      console.log(count)
+    })
+    count = 5
+    console.log(count)
+    document.dispatchEvent(eventReady);
+  </script>
+</body>
+</html>

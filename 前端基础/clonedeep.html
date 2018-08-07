@@ -14,6 +14,7 @@
          e: {
            f: 'aaaa',
            h: function() {
+            console.log('aaa')
            }
          }
        }
@@ -30,6 +31,26 @@
     console.log(objClone)
     console.log(objClone.constructor)
     console.log(JSON.parse(JSON.stringify(obj)))
+
+    let obj2 = {
+      a: 'aaa',
+      b: {
+       c: 'vv',
+       d: {
+         e: {
+           f: 'aaaa',
+           h: function() {
+           }
+         }
+       }
+      }
+    }
+    function assign(obj) {
+      return Object.assign({}, obj)
+    }
+    let obj3 = assign(obj2)
+    obj2.b.d.e = '666'
+    console.log(obj3)
   </script>
 
 </body>
